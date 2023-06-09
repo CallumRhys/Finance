@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+    <table>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Purchase Price</th>
+                <th>Current Price</th>
+                <th>Shares</th>
+                <th>Value</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% set count = namespace(value=0) %}
+            {% for Company in company %}
+                <tr>
+                    <td>{{ Company.symbol }}</td>
+                    <td>{{ Company.price | usd }}</td>
+                    <td>{{ cPrice[count.value] | usd }}</td>
+                    <td>{{ Company.qty }}</td>
+                    <td>{{ (cPrice[count.value] * Company.qty) | usd }}</td>
+                    <td>{{ Company.date }}</td>
+                    {% set count.value = count.value + 1 %}
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            {% for funds in funds %}
+            <tr>
+                <td>Cash</td>
+                <td>{{ funds.cash | usd }}</td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td>{{ funds.cash | usd }}</td>
+            </tr>
+            {% endfor %}
+        </tfoot>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <table>
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Date</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for company in company%}
+                <tr>
+                    <td>{{ company.symbol }}</td>
+                    <td>{{ company.price }}</td>
+                    <td>{{ company.qty }}</td>
+                    <td>{{ company.date }}</td>
+                    <td>{{ company.type }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+{% endblock %}
