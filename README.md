@@ -6,8 +6,6 @@ A Python Web Application to Trade Stocks.
 
 1. install python 3.x
 2. install requirements
-`python -m pip install -r requirements.txt`
-OR
 `pip install -r requirements.txt`
 3. run flask server:
 4. `flask run`
