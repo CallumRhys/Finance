@@ -9,7 +9,7 @@ A Python Web Application to Trade Stocks.
 `pip install -r requirements.txt`
 3. run flask server:
 4. `flask run`
-5. cntrl + click the url that appears
+5. ctrl + click the url that appears
 
 ## Usage
 
